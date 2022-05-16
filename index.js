@@ -1,5 +1,3 @@
-var readlineSync = require('./readLine/node_modules/readline-sync');
-
 //define o array que servirá para formar o tabuleiro
 const emptyString = '  ';
 let boardData = Array(9).fill(emptyString);
@@ -148,25 +146,29 @@ function selectPlayer(){
   currentPlayer = players[selectPlayer];
 }
 
+function question(msg){
+  var readlineSync = require('./readLine/node_modules/readline-sync');
+  let result = readlineSync.question(msg);
+  return parseInt(result);
+}
+
 while(!exit){
   cleanMoves();
   showTutorial();
-  let action = readlineSync.question(`Digite a acao a ser tomada: `);
-  action = parseInt(action);
+  action = question("O que deseja fazer: ")
   switch(action){
     case 1:
       selectPlayer();
       while(!winner){
-        let option = readlineSync.question(`Jogador ${currentPlayer}, Escolha uma posicao: `);
-        option = parseInt(option);
+        option = question(`Jogador ${currentPlayer}, Escolha uma posicao: `)
         setPlayerMovement(option);
         drawBoard(boardData);
       };
       break;
     case 2:
+      console.log("Até Mais!!!!!!!!!");
       exit = true;
-      console.log("Até Mais!!!!!!!!!")
-      break;
+      break;   
     default:
       console.log('\n\nValor inválido!!');
       break;
