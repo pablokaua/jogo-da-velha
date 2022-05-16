@@ -33,5 +33,5 @@ extra:
 ## 👥 Clone o projeto:
 ```bash
     # Digite o seguinte comando no bash:
-    $ git clone https://github.com/pablokaua/Jogo-Da-Velha.git
+    $ git clone https://github.com/pablokaua/jogo-da-velha.git
 ```
